@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Dialog, Flex, Button, Text, TextField } from "@radix-ui/themes";
+import { Dialog, Flex, Button, Text, TextField, Tooltip } from "@radix-ui/themes";
 import { PlusCircledIcon } from "@radix-ui/react-icons";
 import { tc } from "../Utils.js";
 
@@ -26,12 +26,13 @@ function NewCountry(props) {
 
   return (
     <Dialog.Root open={showDialog} onOpenChange={setShowDialog}>
+       <Tooltip content="New country">
       <Dialog.Trigger>
         <Button size="2" color="green" variant="soft">
           <PlusCircledIcon />
         </Button>
       </Dialog.Trigger>
-
+      </Tooltip>
       <Dialog.Content maxWidth="450px">
         <Dialog.Title>Add Country</Dialog.Title>
         <Dialog.Description size="2" mb="4">
