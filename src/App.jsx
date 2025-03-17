@@ -10,7 +10,6 @@ import {
   Badge,
   Container,
   Grid,
-  Tooltip,
 } from "@radix-ui/themes";
 import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 import "@radix-ui/themes/styles.css";
@@ -21,17 +20,23 @@ import { getUser } from "./Utils.js";
 import { HubConnectionBuilder } from "@microsoft/signalr";
 
 function App() {
-  console.log("test")
+  console.log("Hello world")
   const [appearance, setAppearance] = useState("dark");
+  // // const apiEndpoint = "https://medalsapi.azurewebsites.net/api/country";
+  // const apiEndpoint = "https://medalsapi.azurewebsites.net/jwtapi/country";
+  // const hubEndpoint = "https://medalsapi.azurewebsites.net/medalsHub";
+  // const userEndpoint = "https://jwtswagger.azurewebsites.net/api/user/login";
+
   //const apiEndpoint = "https://awdmedals-dhf0b9abdnhqc3d0.centralus-01.azurewebsites.net/api/country";
   //const apiEndpoint = "https://awdmedals-dhf0b9abdnhqc3d0.centralus-01.azurewebsites.net/jwtapi/country";
-  const apiEndpoint = "https://finalmedals-cjbebadabtgrh9e0.centralus-01.azurewebsites.net/jwtapi/country";
-  const hubEndpoint = "https://finalmedals-cjbebadabtgrh9e0.centralus-01.azurewebsites.net/medalsHub"
- // https://finalmedals-cjbebadabtgrh9e0.centralus-01.azurewebsites.net/
+   // https://finalmedals-cjbebadabtgrh9e0.centralus-01.azurewebsites.net/
   //const hubEndpoint = "https://awdmedals-dhf0b9abdnhqc3d0.centralus-01.azurewebsites.net/medalsHub";
 
 
+  const apiEndpoint = "https://finalmedals-cjbebadabtgrh9e0.centralus-01.azurewebsites.net/jwtapi/country";
+  const hubEndpoint = "https://finalmedals-cjbebadabtgrh9e0.centralus-01.azurewebsites.net/medalsHub"
   const userEndpoint = "https://awduserroleservices-ccbeanb9dch3d3gc.centralus-01.azurewebsites.net/api/user/login";
+
   const [connection, setConnection] = useState(null);
   const [countries, setCountries] = useState([]);
   const [user, setUser] = useState({
@@ -322,7 +327,6 @@ function App() {
 
   return (
     <Theme appearance={appearance}>
-       <Tooltip content={appearance === "dark" ? "Light mode" : "Dark mode"}>
       <Button
         onClick={toggleAppearance}
         style={{ position: "fixed", bottom: 20, right: 20, zIndex: 100 }}
@@ -330,7 +334,6 @@ function App() {
       >
         {appearance === "dark" ? <MoonIcon /> : <SunIcon />}
       </Button>
-      </Tooltip>
       {user.authenticated ? (
         <Logout onLogout={handleLogout} />
       ) : (
