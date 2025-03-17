@@ -21,10 +21,16 @@ import { getUser } from "./Utils.js";
 import { HubConnectionBuilder } from "@microsoft/signalr";
 
 function App() {
+  console.log("test")
   const [appearance, setAppearance] = useState("dark");
   //const apiEndpoint = "https://awdmedals-dhf0b9abdnhqc3d0.centralus-01.azurewebsites.net/api/country";
-  const apiEndpoint = "https://awdmedals-dhf0b9abdnhqc3d0.centralus-01.azurewebsites.net/jwtapi/country";
-  const hubEndpoint = "https://awdmedals-dhf0b9abdnhqc3d0.centralus-01.azurewebsites.net/medalsHub";
+  //const apiEndpoint = "https://awdmedals-dhf0b9abdnhqc3d0.centralus-01.azurewebsites.net/jwtapi/country";
+  const apiEndpoint = "https://finalmedals-cjbebadabtgrh9e0.centralus-01.azurewebsites.net/jwtapi/country";
+  const hubEndpoint = "https://finalmedals-cjbebadabtgrh9e0.centralus-01.azurewebsites.net/medalsHub"
+ // https://finalmedals-cjbebadabtgrh9e0.centralus-01.azurewebsites.net/
+  //const hubEndpoint = "https://awdmedals-dhf0b9abdnhqc3d0.centralus-01.azurewebsites.net/medalsHub";
+
+
   const userEndpoint = "https://awduserroleservices-ccbeanb9dch3d3gc.centralus-01.azurewebsites.net/api/user/login";
   const [connection, setConnection] = useState(null);
   const [countries, setCountries] = useState([]);
